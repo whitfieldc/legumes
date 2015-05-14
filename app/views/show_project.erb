@@ -1,0 +1,39 @@
+<hello-world></hello-world>
+<div class="debug">
+    <header class="container debug">
+        <form id="login" class="fl-r debug">
+            <input type="submit" value="Log Out" class="debug"/>
+        </form>
+
+    </header>
+
+    <div class="p-xxl bgc-cool debug">
+        some sort of header bar
+    </div>
+
+    <main role="main" class="contain-xl p-sm row gutters-t gutters-d debug">
+        <ul class="lis-n col span-3-t debug">
+            Icebox
+            <%= erb :"partials/_list_tasks", locals: { stage: "Icebox" } %>
+        </ul>
+
+        <ul class="lis-n col span-3-t debug">
+            Development
+            <%= erb :"partials/_list_tasks", locals: { stage: "Development" } %>
+        </ul>
+
+        <ul class="lis-n col span-3-t debug">
+            Testing
+            <%= erb :"partials/_list_tasks", locals: { stage: "Testing" } %>
+        </ul>
+
+        <ul class="lis-n col span-3-t debug">
+            Deployed
+            <%= erb :"partials/_list_tasks", locals: { stage: "Deployed" } %>
+        </ul>
+        <%= erb :"/partials/_add_task" %>
+    </main>
+
+
+</div>
+

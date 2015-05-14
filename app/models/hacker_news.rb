@@ -3,18 +3,23 @@ module HackerNews
   class Client
     include HTTParty
 
-    base_uri "www.someAPI.com"
 
     def initialize
+    @base_uri = "http://localhost:9494"
 
     end
 
-    def posts
-      response = self.class.get('/some/endpoint', {
-        query: { with: 'paramaters' }
-        })
+    def get(route)
+      result = HTTParty.get(@base_uri+route).parsed_response
+      # @result= JSON.parse(result)
+    end
 
-      return response.body
+    def post(route, params)
+      @post_response = HTTParty.post(
+                                    @base_uri + route,
+                                    headers: @headers,
+                                    body: params
+                                    )
     end
 
   end
