@@ -82,9 +82,16 @@ ul, ol {
 .fl-l { float: left; }
 .bx-sh { box-shadow: 0 3px 6px #888888 }
 .bx-sh-hd { box-shadow: 0 3px 6px #004D40 }
+.mg-tp { margin-top: .3em }
 
 input[type=submit] {
-    background-color: #66BB6A;
+    background-color: #4DB6AC;
+    border-radius: 2px;
+}
+
+input[type=button] {
+    margin-top: .3em;
+    background-color: #4DB6AC;
     border-radius: 2px;
 }
 
@@ -93,10 +100,20 @@ a {
     color: black;
 }
 
-a:hover {
-    color: #424242;
+ul li:hover {
+    color: #FAFAFA;
     font-size: 1.05em;
 }
+
+a:hover {
+    color: #424242;
+}
+
+h3 { box-shadow: 0 3px 6px #888888 }
+
+/*ul { box-shadow: 0 3px 6px #888888 }*/
+
+ul li { box-shadow: 0 3px 6px #888888 }
 
 
 

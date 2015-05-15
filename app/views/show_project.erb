@@ -44,7 +44,7 @@
         </div>
         <%= erb :"/partials/_add_task", locals: {project_id: params[:id] } %>
 
-        <div id="taskform" class="col span-3-t p-sm fl-r bx-sh debug" style="display: none">
+        <div id="taskform" class="col span-3-t p-sm fl-r bx-sh mg-tp debug" style="display: none">
             <form action='/projects/<%= params[:id] %>/tasks' method='post' id="taskroute">
                 <select name="stage">
                   <option value="Icebox">Icebox</option>
