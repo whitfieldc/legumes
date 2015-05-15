@@ -19,11 +19,11 @@ gem 'rake'
 gem 'shotgun'
 
 gem 'httparty'
+gem 'rspec'
 
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'
-  gem 'rspec'
   gem 'capybara'
   gem 'jasmine'
 end
