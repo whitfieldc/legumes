@@ -25,7 +25,7 @@ group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'
   gem 'capybara'
-  gem 'jasmine'
+  # gem 'jasmine'
 end
 
 group :test, :development do
