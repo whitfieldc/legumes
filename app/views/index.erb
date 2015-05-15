@@ -1,6 +1,20 @@
-<h1> You may tell yourself </h1>
+<h1> Your current projects </h1>
 
-<%= erb :"/users/_login" %>
-<%= erb :"/users/_signup" %>
+<% if logged_in? %>
+  <% unless @projects.empty? %>
+    <ul>
+      <% @projects.each do |project| %>
+        <li><a href="/projects/<%= project["id"] %>" ><%= project["title"] %></a></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <%= erb :_add_project %>
 
-<h4> This is not my beautiful house </h4>
+<%= erb :"users/_logout" %>
+<% else %>
+  <%= erb :"/users/_login" %>
+  <%= erb :"/users/_signup" %>
+<% end %>
+
+
+<h4> Deeeeeeeecoupling </h4>

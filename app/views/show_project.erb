@@ -14,22 +14,22 @@
     <main role="main" class="contain-xl p-sm row gutters-t gutters-d debug">
         <ul class="lis-n col span-3-t debug">
             Icebox
-            <%= erb :"partials/_list_tasks", locals: { stage: "Icebox" } %>
+            <%= erb :"partials/_list_tasks", locals: { tasks: @task_set.select {|task| task["stage"] == "Icebox"} } %>
         </ul>
 
         <ul class="lis-n col span-3-t debug">
             Development
-            <%= erb :"partials/_list_tasks", locals: { stage: "Development" } %>
+            <%= erb :"partials/_list_tasks", locals: { tasks: @task_set.select {|task| task["stage"] == "Development" } } %>
         </ul>
 
         <ul class="lis-n col span-3-t debug">
             Testing
-            <%= erb :"partials/_list_tasks", locals: { stage: "Testing" } %>
+            <%= erb :"partials/_list_tasks", locals: { tasks: @task_set.select {|task| task["stage"] == "Testing" } } %>
         </ul>
 
         <ul class="lis-n col span-3-t debug">
             Deployed
-            <%= erb :"partials/_list_tasks", locals: { stage: "Deployed" } %>
+            <%= erb :"partials/_list_tasks", locals: { tasks: @task_set.select {|task| task["stage"] == "Deployed" } } %>
         </ul>
         <%= erb :"/partials/_add_task" %>
     </main>

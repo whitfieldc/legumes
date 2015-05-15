@@ -1,36 +1,36 @@
 helpers do
 
-  def session_key
-    session[:session_key]
+  def access_token
+    session[:access_token]
   end
 
-  def session_key=(session_key)
-    session[:session_key] = session_key
+  def access_token=(access_token)
+    session[:access_token] = access_token
     @api_client = nil
   end
 
   def api_client
-    @api_client ||= ApiClient.new(
-      session_key: session_key,
-    )
+    @api_client ||= ApiClient.new(access_token: access_token)
   end
 
   def login(email, password)
     response = api_client.login(email, password)
-    raise response.inspect
-    self.session_key = session_key
+    raise "failed login #{response["error"]}" if response["error"]
+    self.access_token = response["access_token"]
+  end
+
+  def signup(email, password)
+    response = api_client.signup(email, password)
+    raise "failed signup #{response["error"]}" if response["error"]
+    self.access_token = response["access_token"]
   end
 
   def logout
-
-  end
-
-  def current_user
-    nil
+    session.clear
   end
 
   def logged_in?
-    !!current_user
+    !access_token.nil?
   end
 
 end

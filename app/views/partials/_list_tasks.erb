@@ -1,6 +1,5 @@
-<% task_set = Task.where(stage: "#{stage}") %>
-<% task_set.each do |task| %>
+<% tasks.each do |task| %>
 <li class="debug">
-    <%= task.title %>
+    <%= task["title"] %>
 </li>
 <% end %>
