@@ -74,8 +74,9 @@ ul, ol {
 
 .lis-n { list-style: none; }
 .p-sm { padding: 0.6em; }
-.p-xxl { padding: 3em; }
+.p-xxl { padding: 2em; }
 .bgc-cool { background-color: #009688; }
+.fz-lg { font-size: 3em }
 .fz-xxl { font-size: 16em; }
 .fl-r { float: right; }
 .fl-l { float: left; }

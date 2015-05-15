@@ -27,7 +27,7 @@ function bindEvents(){
     toggleTaskForm(event);
   });
 
-  $('#main').on('click', '#addTask :submit', function(event){
+  $('#main').on('click', ':submit.createtask ', function(event){
     addNewTask(event);
   });
 
@@ -54,19 +54,18 @@ function removeTask(event){
 
 function addNewTask(event){
   event.preventDefault();
-
   var stageToAppend = $("select[name='stage']").val();
   var appendTarget = $('#'+stageToAppend+" ul:first-child");
   var route = $('#taskroute').attr('action');
 
-  var data = $("form").serialize();
+  var data = $("#taskroute").serialize();
 
   var creation = $.ajax({
     type: "post",
     url: route,
     data: data,
     success: function(data){
-      // console.log(data)
+      console.log(data)
     }
   });
 

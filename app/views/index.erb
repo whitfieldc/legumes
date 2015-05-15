@@ -1,17 +1,32 @@
-<h1> Your current projects </h1>
+<div class="p-sm bgc-cool bx-sh debug">
+  <h1 class="fz-lg debug"> Gopherban </h1>
+  <% if logged_in? %>
+    <div class="fl-l dis-in debug">
+        <form action="/" method="get" id="home" class="debug">
+            <input type="submit" value="Home" class="bx-sh-hd debug"/>
+        </form>
+    </div>
+    <div class="fl-r dis-in debug">
+        <form action="/logout" method="post" id="logout" class="debug">
+            <input type="submit" value="Log Out" class="bx-sh-hd debug"/>
+        </form>
+    </div>
+</div>
 
-<% if logged_in? %>
+
   <% unless @projects.empty? %>
-    <ul>
-      <% @projects.each do |project| %>
-        <li><a href="/projects/<%= project["id"] %>" ><%= project["title"] %></a></li>
-      <% end %>
-    </ul>
+    <h1> Your current projects </h1>
+      <ul>
+        <% @projects.each do |project| %>
+          <li><a href="/projects/<%= project["id"] %>" ><%= project["title"] %></a></li>
+        <% end %>
+      </ul>
   <% end %>
   <%= erb :_add_project %>
 
 <%= erb :"users/_logout" %>
 <% else %>
+</div>
   <%= erb :"/users/_login" %>
   <%= erb :"/users/_signup" %>
 <% end %>
