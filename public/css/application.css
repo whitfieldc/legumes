@@ -83,6 +83,21 @@ ul, ol {
 .bx-sh { box-shadow: 0 3px 6px #888888 }
 .bx-sh-hd { box-shadow: 0 3px 6px #004D40 }
 
+input[type=submit] {
+    background-color: #66BB6A;
+    border-radius: 2px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: #424242;
+    font-size: 1.05em;
+}
+
 
 
 

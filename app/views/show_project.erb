@@ -1,7 +1,7 @@
 <div class="debug">
 
-
     <div class="p-xxl bgc-cool bx-sh debug">
+        <h1 class="fz-lg debug"> Gopherban </h1>
         <div class="fl-l dis-in debug">
             <form action="/" method="get" id="home" class="debug">
                 <input type="submit" value="Home" class="bx-sh-hd debug"/>
@@ -44,7 +44,7 @@
         </div>
         <%= erb :"/partials/_add_task", locals: {project_id: params[:id] } %>
 
-        <div id="taskform" class="debug" style="display: none">
+        <div id="taskform" class="col span-3-t p-sm fl-r bx-sh debug" style="display: none">
             <form action='/projects/<%= params[:id] %>/tasks' method='post' id="taskroute">
                 <select name="stage">
                   <option value="Icebox">Icebox</option>
