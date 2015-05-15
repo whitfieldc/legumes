@@ -1,0 +1,12 @@
+<div draggable="true" id="<%= task_id %>"class="task">
+  <li class="debug">
+    <a href="#<%=title.gsub(/\s+/, "")%>"><h4><%= title %></h4></a>
+    <div id="<%=title.gsub(/\s+/, "")%>" style="display: none">
+      <%= detail %>
+      <form action="/tasks/<%= task_id %>" method="post">
+        <input type="hidden" name="_method" value="delete"/>
+        <input type="submit" value="Delete" class="delete"/>
+      </form>
+    </div>
+  </li>
+</div>

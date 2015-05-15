@@ -1,0 +1,3 @@
+<% tasks.each do |task| %>
+  <%= erb :"partials/_small_task", locals:{ task_id: task["id"], title: task["title"], detail: task["description"] } %>
+<% end %>

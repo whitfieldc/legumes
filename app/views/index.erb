@@ -1,23 +1,20 @@
-<div class="container">
-  <h1>Welcome to Sinatra!</h1>
-  <p>Hello, world!</p>
+<h1> Your current projects </h1>
 
-  <table>
-    <tr>
-      <th>File Description</th>
-      <th>File Location</th>
-    </tr>
-    <tr>
-      <td>This view file</td>
-      <td><code><%= __FILE__.gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The layout file</td>
-      <td><code><%= File.expand_path('../layout.erb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The current controller</td>
-      <td><code><%= File.expand_path('../../controllers/index.rb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-  </table>
-</div>
+<% if logged_in? %>
+  <% unless @projects.empty? %>
+    <ul>
+      <% @projects.each do |project| %>
+        <li><a href="/projects/<%= project["id"] %>" ><%= project["title"] %></a></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <%= erb :_add_project %>
+
+<%= erb :"users/_logout" %>
+<% else %>
+  <%= erb :"/users/_login" %>
+  <%= erb :"/users/_signup" %>
+<% end %>
+
+
+<h4> Deeeeeeeecoupling </h4>
