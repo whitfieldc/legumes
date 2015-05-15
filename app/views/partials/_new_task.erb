@@ -1,4 +1,4 @@
-<form action='/tasks' method='post'>
+<form action='projects/<%= params[:id] %>/tasks' method='post'>
   <input type="text" name="section" placeholder="Section"/>
   <input type='text' name='title' placeholder='Title'/>
   <textarea name='description' placeholder='Description'></textarea>

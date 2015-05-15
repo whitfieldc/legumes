@@ -1,7 +1,7 @@
 <hello-world></hello-world>
 <div class="debug">
     <header class="container debug">
-        <form id="login" class="fl-r debug">
+        <form action="/logout" method="post" id="login" class="fl-r debug">
             <input type="submit" value="Log Out" class="debug"/>
         </form>
 
@@ -11,7 +11,7 @@
         some sort of header bar
     </div>
 
-    <main role="main" class="contain-xl p-sm row gutters-t gutters-d debug">
+    <main role="main" class="container p-sm row gutters-t gutters-d debug">
         <ul class="lis-n col span-3-t debug">
             Icebox
             <%= erb :"partials/_list_tasks", locals: { tasks: @task_set.select {|task| task["stage"] == "Icebox"} } %>
@@ -31,7 +31,7 @@
             Deployed
             <%= erb :"partials/_list_tasks", locals: { tasks: @task_set.select {|task| task["stage"] == "Deployed" } } %>
         </ul>
-        <%= erb :"/partials/_add_task" %>
+        <%= erb :"/partials/_add_task", locals: {project_id: params[:id] } %>
     </main>
 
 

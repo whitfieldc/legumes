@@ -28,10 +28,6 @@ post '/users/login' do
   else
     erb :index
   end
-  # get @key from backend JSON
-  # set session key info to @key
-  # redirect to homepage
-  # send session key and username in headers with successive requests
 end
 
 post '/logout' do
