@@ -23,6 +23,43 @@ function bindEvents(){
     showDetail(event);
   })
 
+  $('#main').on('click', '#addTask', function(event){
+    toggleTaskForm(event);
+  });
+
+  $('#main').on('click', ':submit', function(event){
+    addNewTask(event);
+  });
+
+};
+
+function addNewTask(event){
+  event.preventDefault();
+
+  var stageToAppend = $("select[name='stage']").val();
+  var appendTarget = $('div.'+stageToAppend+":first-child");
+  var route = $('#taskroute').attr('action');
+
+  var data = $("form").serialize();
+
+  var creation = $.ajax({
+    type: "post",
+    url: route,
+    data: data,
+    success: function(data){
+      var newTask = $(data);
+      appendTarget.append(newTask);
+      $('#taskform').hide();
+      $('#addTask').show();
+    }
+  });
+
+};
+
+function toggleTaskForm(event){
+  event.preventDefault();
+  $(event.target).hide();
+  $('#taskform').show();
 };
 
 function showDetail(event){
@@ -37,7 +74,7 @@ function showDetail(event){
 
 function reassignTask(event){
   event.preventDefault();
-  var newStage = event.target.closest('div.stage');
+  var newStage = event.target.closest('ul');
   console.log(newStage);
   var stageName = newStage.id;
   console.log(stageName);
@@ -60,6 +97,14 @@ function reassignTask(event){
   });
 
 };
+
+// function buildTask(options){
+
+//   var newTaskDiv = $('#tasktemplate').html();
+
+//   var
+
+// };
 
 // function showTaskForm(event) {
 //   event.preventDefault();

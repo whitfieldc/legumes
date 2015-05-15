@@ -16,7 +16,13 @@ end
 
 post '/projects/:id/tasks' do
   response = api_client.create_task(params)
-  response.inspect
+  if response
+    erb :"partials/_small_task", locals: {
+      title: response["title"],
+      task_id: response["id"],
+      detail: response["description"]
+    }
+  end
 end
 
 get '/projects/:id/tasks/new' do
