@@ -1,44 +1,45 @@
 <hello-world></hello-world>
 <div class="debug">
-    <header class="container debug">
-        <form action="/" method="get" id="home" class="fl-l debug">
-            <input type="submit" value="Home" class="debug"/>
-        </form>
-        <form action="/logout" method="post" id="logout" class="fl-r debug">
-            <input type="submit" value="Log Out" class="debug"/>
-        </form>
 
-    </header>
 
-    <div class="p-xxl bgc-cool debug">
-        some sort of header bar
+    <div class="p-xxl bgc-cool bx-sh debug">
+        <div class="fl-l dis-in debug">
+            <form action="/" method="get" id="home" class="debug">
+                <input type="submit" value="Home" class="bx-sh-hd debug"/>
+            </form>
+        </div>
+        <div class="fl-r dis-in debug">
+            <form action="/logout" method="post" id="logout" class="debug">
+                <input type="submit" value="Log Out" class="bx-sh-hd debug"/>
+            </form>
+        </div>
     </div>
 
     <main role="main" id="main" class="container p-sm row gutters-t gutters-d debug">
-        <div id="Icebox" class="stage col span-3-t debug">
+        <div id="Icebox" class="stage col span-3-t bx-sh debug">
             <ul class="lis-n debug">
-                <h3>Icebox</h3>
+                <h3 class="bx-sh debug">Icebox</h3>
                 <%= erb :"partials/_list_tasks", locals: { tasks: @task_set.select {|task| task["stage"] == "Icebox"} } %>
             </ul>
         </div>
 
-        <div id="Development" class="stage col span-3-t debug">
+        <div id="Development" class="stage col span-3-t bx-sh debug">
             <ul class="lis-n debug">
-                <h3>Development</h3>
+                <h3 class="bx-sh debug">Development</h3>
                 <%= erb :"partials/_list_tasks", locals: { tasks: @task_set.select {|task| task["stage"] == "Development" } } %>
             </ul>
         </div>
 
-        <div id="Testing" class="stage col span-3-t debug">
+        <div id="Testing" class="stage col span-3-t bx-sh debug">
             <ul class="lis-n debug">
-                <h3>Testing</h3>
+                <h3 class="bx-sh debug">Testing</h3>
                 <%= erb :"partials/_list_tasks", locals: { tasks: @task_set.select {|task| task["stage"] == "Testing" } } %>
             </ul>
         </div>
 
-        <div id="Deployed" class="stage col span-3-t debug">
+        <div id="Deployed" class="stage col span-3-t bx-sh debug">
             <ul class="lis-n debug">
-                <h3>Deployed</h3>
+                <h3 class="bx-sh debug">Deployed</h3>
                 <%= erb :"partials/_list_tasks", locals: { tasks: @task_set.select {|task| task["stage"] == "Deployed" } } %>
             </ul>
         </div>

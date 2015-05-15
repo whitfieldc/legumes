@@ -64,7 +64,7 @@ ul, ol {
 }
 
 .debug {
-    border: 1px solid red;
+    border: 0px solid red;
 }
 
 .contain-xl {
@@ -74,10 +74,13 @@ ul, ol {
 
 .lis-n { list-style: none; }
 .p-sm { padding: 0.6em; }
-.p-xxl { padding: 2em; }
-.bgc-cool { background-color: green; }
+.p-xxl { padding: 3em; }
+.bgc-cool { background-color: #009688; }
 .fz-xxl { font-size: 16em; }
 .fl-r { float: right; }
+.fl-l { float: left; }
+.bx-sh { box-shadow: 0 3px 6px #888888 }
+.bx-sh-hd { box-shadow: 0 3px 6px #004D40 }
 
 
 
