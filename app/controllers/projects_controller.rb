@@ -21,7 +21,7 @@ post '/projects/:id/tasks' do
       title: response["title"],
       task_id: response["id"],
       detail: response["description"]
-    }
+    }, layout: false
   end
 end
 

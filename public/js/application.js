@@ -47,12 +47,17 @@ function addNewTask(event){
     url: route,
     data: data,
     success: function(data){
-      var newTask = $(data);
-      appendTarget.append(newTask);
-      $('#taskform').hide();
-      $('#addTask').show();
+      console.log(data)
     }
   });
+
+  creation.done(function(response){
+    var newTask = $(response);
+    console.log(response);
+    appendTarget.append(newTask);
+    $('#taskform').hide();
+    $('#addTask').show();
+    });
 
 };
 
