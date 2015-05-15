@@ -32,6 +32,14 @@ class ApiClient
     authorized_get("/projects/#{id}")
   end
 
+  def create_task(params)
+    authorized_post("/projects/#{params[:id]}/tasks", params)
+  end
+
+  def update_task(params)
+    authorized_patch("/tasks/#{params[:id]}", params)
+  end
+
   def get(path, params={}, headers={})
     response = HTTParty.get("#{@base_uri}#{path}",
       params: params,
@@ -47,6 +55,21 @@ class ApiClient
       body: params,
     )
     response.parsed_response
+  end
+
+  def patch(path, params={}, headers={})
+    response = HTTParty.patch(
+      "#{@base_uri}#{path}",
+      headers: headers,
+      body: params,
+      )
+    response.parsed_response
+  end
+
+  def authorized_patch(path, params={}, headers={})
+    ensure_access_token!
+    headers["KEY"] = @access_token
+    patch(path, params, headers)
   end
 
   def authorized_post(path, params={}, headers={})

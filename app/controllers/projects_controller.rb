@@ -14,6 +14,15 @@ get '/projects/:id' do
   erb :show_project
 end
 
-get 'projects/:project_id/tasks/new' do
-  erb :_new_task
+post '/projects/:id/tasks' do
+  response = api_client.create_task(params)
+  response.inspect
+end
+
+get '/projects/:id/tasks/new' do
+  erb :"partials/_new_task"
+end
+
+patch '/tasks/:id' do
+  response = api_client.update_task(params)
 end

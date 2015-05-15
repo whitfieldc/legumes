@@ -1,7 +1,10 @@
 <hello-world></hello-world>
 <div class="debug">
     <header class="container debug">
-        <form action="/logout" method="post" id="login" class="fl-r debug">
+        <form action="/" method="get" id="home" class="fl-l debug">
+            <input type="submit" value="Home" class="debug"/>
+        </form>
+        <form action="/logout" method="post" id="logout" class="fl-r debug">
             <input type="submit" value="Log Out" class="debug"/>
         </form>
 
@@ -11,27 +14,44 @@
         some sort of header bar
     </div>
 
-    <main role="main" class="container p-sm row gutters-t gutters-d debug">
-        <ul class="lis-n col span-3-t debug">
-            Icebox
-            <%= erb :"partials/_list_tasks", locals: { tasks: @task_set.select {|task| task["stage"] == "Icebox"} } %>
-        </ul>
+    <main role="main" id="main" class="container p-sm row gutters-t gutters-d debug">
+        <div id="Icebox" class="stage col span-3-t debug">
+            <ul class="lis-n debug">
+                <h3>Icebox</h3>
+                <%= erb :"partials/_list_tasks", locals: { tasks: @task_set.select {|task| task["stage"] == "Icebox"} } %>
+            </ul>
+        </div>
 
-        <ul class="lis-n col span-3-t debug">
-            Development
-            <%= erb :"partials/_list_tasks", locals: { tasks: @task_set.select {|task| task["stage"] == "Development" } } %>
-        </ul>
+        <div id="Development" class="stage col span-3-t debug">
+            <ul class="lis-n debug">
+                <h3>Development</h3>
+                <%= erb :"partials/_list_tasks", locals: { tasks: @task_set.select {|task| task["stage"] == "Development" } } %>
+            </ul>
+        </div>
 
-        <ul class="lis-n col span-3-t debug">
-            Testing
-            <%= erb :"partials/_list_tasks", locals: { tasks: @task_set.select {|task| task["stage"] == "Testing" } } %>
-        </ul>
+        <div id="Testing" class="stage col span-3-t debug">
+            <ul class="lis-n debug">
+                <h3>Testing</h3>
+                <%= erb :"partials/_list_tasks", locals: { tasks: @task_set.select {|task| task["stage"] == "Testing" } } %>
+            </ul>
+        </div>
 
-        <ul class="lis-n col span-3-t debug">
-            Deployed
-            <%= erb :"partials/_list_tasks", locals: { tasks: @task_set.select {|task| task["stage"] == "Deployed" } } %>
-        </ul>
+        <div id="Deployed" class="stage col span-3-t debug">
+            <ul class="lis-n debug">
+                <h3>Deployed</h3>
+                <%= erb :"partials/_list_tasks", locals: { tasks: @task_set.select {|task| task["stage"] == "Deployed" } } %>
+            </ul>
+        </div>
         <%= erb :"/partials/_add_task", locals: {project_id: params[:id] } %>
+
+        <div id="taskform" class="debug" style="display: none">
+            <form action='/projects/<%= params[:id] %>/tasks' method='post'>
+              <input type="text" name="stage" placeholder="Stage"/>
+              <input type='text' name='title' placeholder='Title'/>
+              <textarea name='description' placeholder='Description'></textarea>
+              <input type='submit' value='Submit'/>
+            </form>
+        </div>
     </main>
 
 
