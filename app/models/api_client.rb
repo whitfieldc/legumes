@@ -40,6 +40,10 @@ class ApiClient
     authorized_patch("/tasks/#{params[:id]}", params)
   end
 
+  def delete_task(id)
+    authorized_delete("/tasks/#{id}")
+  end
+
   def get(path, params={}, headers={})
     response = HTTParty.get("#{@base_uri}#{path}",
       params: params,
@@ -64,6 +68,20 @@ class ApiClient
       body: params,
       )
     response.parsed_response
+  end
+
+  def delete(path, params={}, headers={})
+    response = HTTParty.delete(
+      "#{@base_uri}#{path}",
+      headers: headers,
+      )
+    response.parsed_response
+  end
+
+  def authorized_delete(path, params={}, headers={})
+    ensure_access_token!
+    headers["KEY"] = @access_token
+    delete(path)
   end
 
   def authorized_patch(path, params={}, headers={})

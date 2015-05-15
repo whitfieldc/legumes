@@ -27,17 +27,36 @@ function bindEvents(){
     toggleTaskForm(event);
   });
 
-  $('#main').on('click', ':submit', function(event){
+  $('#main').on('click', '#addTask :submit', function(event){
     addNewTask(event);
   });
 
+  $('#main').on('click', ':submit.delete ', function(event){
+    removeTask(event);
+  });
+
+
 };
+
+function removeTask(event){
+  event.preventDefault();
+  console.log('in the ajax delete')
+
+  var doomedTask = $(event.target).closest('.task');
+  var taskId = doomedTask.attr('id')
+
+  var deletion = $.ajax({
+    type: 'delete',
+    url: '/tasks/' + taskId,
+  });
+  doomedTask.hide();
+}
 
 function addNewTask(event){
   event.preventDefault();
 
   var stageToAppend = $("select[name='stage']").val();
-  var appendTarget = $('div.'+stageToAppend+":first-child");
+  var appendTarget = $('#'+stageToAppend+" ul:first-child");
   var route = $('#taskroute').attr('action');
 
   var data = $("form").serialize();
@@ -47,13 +66,14 @@ function addNewTask(event){
     url: route,
     data: data,
     success: function(data){
-      console.log(data)
+      // console.log(data)
     }
   });
 
   creation.done(function(response){
     var newTask = $(response);
-    console.log(response);
+
+    // console.log(response);
     appendTarget.append(newTask);
     $('#taskform').hide();
     $('#addTask').show();
@@ -70,9 +90,7 @@ function toggleTaskForm(event){
 function showDetail(event){
   event.preventDefault();
   var title = $(event.target).closest('a').attr('href');
-  console.log(title);
   var detail = $(title);
-  console.log(detail);
   detail.toggle();
 
 };
@@ -80,11 +98,8 @@ function showDetail(event){
 function reassignTask(event){
   event.preventDefault();
   var newStage = event.target.closest('ul');
-  console.log(newStage);
   var stageName = newStage.id;
-  console.log(stageName);
   var taskId = event.originalEvent.dataTransfer.getData("Id");
-  console.log(taskId)
   var text = event.originalEvent.dataTransfer.getData("Text");
 
   var data = {

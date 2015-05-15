@@ -32,3 +32,7 @@ end
 patch '/tasks/:id' do
   response = api_client.update_task(params)
 end
+
+delete '/tasks/:id' do
+  response = api_client.delete_task(params[:id])
+end
