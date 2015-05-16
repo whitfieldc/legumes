@@ -116,29 +116,3 @@ function reassignTask(event){
   });
 
 };
-
-// function buildTask(options){
-
-//   var newTaskDiv = $('#tasktemplate').html();
-
-//   var
-
-// };
-
-// function showTaskForm(event) {
-//   event.preventDefault();
-//   taskForm.dialog( "open" );
-// };
-
-
-// var addTask = function(){}
-
-  // var tasks = $('.task');
-  // // console.log(tasks);
-  // $.each(tasks, function(task){
-  //   task.addEventListener("dragstart", startDrag, false);
-  //   var startDrag = function(event){
-  //     event.dataTransfer.setData('Text', event.target.id);
-  //     console.log(event.dataTransfer.getData('Text'));
-  //   };
-  // });
