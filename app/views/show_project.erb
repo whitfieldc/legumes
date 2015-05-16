@@ -15,29 +15,29 @@
     </div>
 
     <main role="main" id="main" class="container p-sm row gutters-t gutters-d debug">
-        <div id="Icebox" class="stage col span-3-t bx-sh debug">
-            <ul class="lis-n debug">
+        <div class="stage col span-3-t bx-sh debug">
+            <ul id="Icebox" class="lis-n debug">
                 <h3 class="debug">Icebox</h3>
                 <%= erb :"partials/_list_tasks", locals: { tasks: @task_set.select {|task| task["stage"] == "Icebox"} } %>
             </ul>
         </div>
 
-        <div id="Development" class="stage col span-3-t bx-sh debug">
-            <ul class="lis-n debug">
+        <div class="stage col span-3-t bx-sh debug">
+            <ul id="Development" class="lis-n debug">
                 <h3 class="debug">Development</h3>
                 <%= erb :"partials/_list_tasks", locals: { tasks: @task_set.select {|task| task["stage"] == "Development" } } %>
             </ul>
         </div>
 
-        <div id="Testing" class="stage col span-3-t bx-sh debug">
-            <ul class="lis-n debug">
+        <div class="stage col span-3-t bx-sh debug">
+            <ul id="Testing" class="lis-n debug">
                 <h3 class="debug">Testing</h3>
                 <%= erb :"partials/_list_tasks", locals: { tasks: @task_set.select {|task| task["stage"] == "Testing" } } %>
             </ul>
         </div>
 
-        <div id="Deployed" class="stage col span-3-t bx-sh debug">
-            <ul class="lis-n debug">
+        <div class="stage col span-3-t bx-sh debug">
+            <ul id="Deployed" class="lis-n debug">
                 <h3 class="debug">Deployed</h3>
                 <%= erb :"partials/_list_tasks", locals: { tasks: @task_set.select {|task| task["stage"] == "Deployed" } } %>
             </ul>

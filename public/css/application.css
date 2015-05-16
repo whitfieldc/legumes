@@ -82,7 +82,7 @@ ul, ol {
 .fl-l { float: left; }
 .bx-sh { box-shadow: 0 3px 6px #888888 }
 .bx-sh-hd { box-shadow: 0 3px 6px #004D40 }
-.mg-tp { margin-top: .3em }
+.mg-tp { margin-top: .5em }
 
 input[type=submit] {
     background-color: #4DB6AC;
@@ -101,7 +101,6 @@ a {
 }
 
 ul li:hover {
-    color: #FAFAFA;
     font-size: 1.05em;
 }
 
