@@ -54,10 +54,13 @@ function removeTask(event){
 
 function addNewTask(event){
   event.preventDefault();
+  // console.log(event);
   var stageToAppend = $("select[name='stage']").val();
-  var appendTarget = $('#'+stageToAppend+" ul:first-child");
+  // console.log(stageToAppend);
+  var appendTarget = $('#'+stageToAppend);
+  // debugger
+  // console.log(appendTarget);
   var route = $('#taskroute').attr('action');
-
   var data = $("#taskroute").serialize();
 
   var creation = $.ajax({
@@ -71,11 +74,13 @@ function addNewTask(event){
 
   creation.done(function(response){
     var newTask = $(response);
-
+    // console.log(newTask);
+    // console.log(appendTarget);
     // console.log(response);
     appendTarget.append(newTask);
     $('#taskform').hide();
     $('#addTask').show();
+    $('#taskroute')[0].reset();
     });
 
 };

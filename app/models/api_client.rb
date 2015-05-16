@@ -2,7 +2,8 @@ class ApiClient
 
   def initialize(options)
     @access_token = options.fetch(:access_token)
-    @base_uri = "https://peaceful-sierra-3742.herokuapp.com/"
+    # @base_uri = "https://peaceful-sierra-3742.herokuapp.com/"
+    @base_uri = 'http://localhost:9393'
     @headers = {  }
   end
 
